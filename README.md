@@ -3,4 +3,9 @@ By implementing toxicity moderation, it enhances the online interaction experien
 
 Commands to run project:
 
+For setting up dependencies to run project run:
+
 poetry install
+
+To run the project run:
+poetry run python3 main.py
