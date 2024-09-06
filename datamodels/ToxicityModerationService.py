@@ -11,7 +11,7 @@ def get_content_from_response(response):
 
 class ToxicityModerationService:
     def __init__(self):
-        self.system_prompt_location = os.getcwd() + "data/prompts/toxicity-classification-prompt.txt"
+        self.system_prompt_location = os.getcwd() + "/data/prompts/toxicity-classification-prompt.txt"
         load_dotenv()
         self.client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
 
