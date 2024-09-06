@@ -1,7 +1,5 @@
 from datamodels.ToxicityModerationService import ToxicityModerationService, load_content, write_content
 
-from datamodels.LocalPersistenceService import LocalStorageService
-from datamodels.WhisperTranscriberService import WhisperTranscriberService
 import os
 
 
@@ -22,8 +20,10 @@ def list_files_in_folder(folder_path):
 if __name__ == '__main__':
     moderation_service = ToxicityModerationService()
 
-    # "/Users/eren/personal-projects/toxicity-moderation/data/transcripts/toxic-communication-valorant.txt"
-    list_file_paths = "//data/transcripts/permissive/"
+    CWD = os.getcwd()
+
+    # CWD + /data/transcripts/toxic-communication-valorant.txt"
+    list_file_paths = CWD + "/data/transcripts/permissive"
     file_paths = list_files_in_folder(list_file_paths)
     print(file_paths)
 

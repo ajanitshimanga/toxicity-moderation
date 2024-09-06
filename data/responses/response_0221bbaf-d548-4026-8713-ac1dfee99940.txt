@@ -1,7 +1,0 @@
-{
-  "player": "KillerInstinct",
-  "text": "If we lose this, it’s all your fault. I hope you realize that.",
-  "is_punishable": "false",
-  "reason": "Does not contain profanity language, racial discrimination, or homophobic discrimination.",
-  "penalty": "None"
-}

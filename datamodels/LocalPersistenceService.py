@@ -7,7 +7,7 @@ from datamodels.StorageInterface import StorageInterface
 
 class LocalStorageService(StorageInterface):
     def __init__(self):
-        self.location = "/Users/eren/personal-projects/toxicity-moderation/data/transcripts"
+        self.location = os.getcwd() + "/data/transcripts"
 
     def store(self, text: str) -> None:
         text = text + "\n"

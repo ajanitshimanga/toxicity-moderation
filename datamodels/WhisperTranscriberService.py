@@ -9,7 +9,7 @@ from datamodels.TranscriberInterface import TranscriberInterface
 class WhisperTranscriberService(TranscriberInterface):
     def __init__(self):
 
-        self.location = "/Users/eren/personal-projects/toxicity-moderation/data/mp3/streamers/drk-audio.mp3"
+        self.location = os.getcwd() + "data/mp3/streamers/drk-audio.mp3"
         load_dotenv()
 
     def transcribe(self, audio_file_path: str) -> str:

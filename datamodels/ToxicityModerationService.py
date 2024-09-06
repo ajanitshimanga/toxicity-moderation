@@ -11,8 +11,7 @@ def get_content_from_response(response):
 
 class ToxicityModerationService:
     def __init__(self):
-        self.system_prompt_location = "/Users/eren/personal-projects/toxicity-moderation/" \
-                                      "data/prompts/toxicity-classification-prompt.txt"
+        self.system_prompt_location = os.getcwd() + "data/prompts/toxicity-classification-prompt.txt"
         load_dotenv()
         self.client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
 
@@ -31,7 +30,7 @@ class ToxicityModerationService:
 
 
 def write_content(content: str, file_name: str = None,
-                  absolute_save_path: str = "/Users/eren/personal-projects/toxicity-moderation/data/responses/") -> bool:
+                  absolute_save_path: str = os.getcwd() + "/data/responses/") -> bool:
     """
     If write succeeds, then True is returned. Else False.
 
