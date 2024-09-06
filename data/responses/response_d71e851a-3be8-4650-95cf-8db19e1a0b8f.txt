@@ -1,0 +1,7 @@
+{
+  "player": "ElitePlayer",
+  "text": "Don’t bother, you’re clearly out of your league.",
+  "is_punishable": "false",
+  "reason": "The comment expresses frustration and implies the other player's lack of ability but does not contain profanity language, racial discrimination, or homophobic discrimination.",
+  "penalty": "None"
+}

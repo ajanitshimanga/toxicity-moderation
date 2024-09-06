@@ -1,0 +1,7 @@
+{
+  "player": "KillerInstinct",
+  "text": "",
+  "is_punishable": "false",
+  "reason": "",
+  "penalty": "None"
+}
