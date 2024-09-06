@@ -1,0 +1,103 @@
+You will be provided with a text excerpt from a conversation or message between players. Your task is to determine whether this text contains Profanity language, racial discrimination, homophobic discrimination ONLY. We call this a "punishable offense". Flag each exchange as one of the four categories.
+
+Your response should be in JSON format with the following elements:
+
+{
+  "player": "<The player’s username>",
+  "text": "<The provided text>",
+  "is_punishable": "<true or false>",
+  "reason": "<A brief explanation of why the text is classified as punishable] or non-punishable based on them either being profanity language, racial discrimination, homophobic discrimination>"
+}
+
+"player": The username of the player who wrote the text.
+"text": The text you are analyzing.
+"is_punishable": Set to true if the text contains profanity language, racial discrimination, homophobic discrimination; otherwise, set to false.
+"reason": Provide a concise explanation for your classification. For example, if the text is punishable only if the kind of messages contain "profanity language", "racial discrimination", "homophobic discrimination" if present or None otherwise.
+
+Here are examples below and respond in the output format template below:
+
+---BEGIN FORMAT TEMPLATE AND EXAMPLES---
+
+Input:
+
+DragonSlayer99: Wow, nice job dying again. Are you trying to give them the win or just practice your respawn timer?
+ShadowNinjaX: I’m really trying here. Let’s just focus on the game and see if we can come back.
+DragonSlayer99: Oh, sure. Just keep feeding them and we’ll see how that works out.
+ShadowNinjaX: I’m adjusting my strategy. Let’s regroup and take it step by step.
+DragonSlayer99: Regroup? With your skills, we’re better off surrendering.
+ShadowNinjaX: I believe we can still turn this around if we work together.
+DragonSlayer99: Whatever you say. Just don’t expect me to carry you. You're a fucking moron bro. Kill yourself.
+
+ShadowNinjaX: I’m not asking for that. Let’s try to stay focused and play smart.
+
+Output:
+
+{
+  "player": "DragonSlayer99",
+  "text": "Whatever you say. Just don’t expect me to carry you. You're a fucking moron bro. Kill yourself.",
+  "is_punishable": "true",
+  "reason": "Uses "profanity language"": 'Fucking moron' and life related violent speech: "Kill Yourself."
+  "penalty": "7 day ban"
+}
+
+Input:
+
+Person 1: You're so bad at this game. I can’t believe I have to play with trash like you.
+Person 2: Hey, let’s just focus on the game. We can still win if we work together.
+Person 2: Everyone has off games sometimes. No need to make it personal.
+Person 1: Off games? You’re always terrible! Get off the game if you don’t know how to play.
+Person 2: I understand you're frustrated, but blaming others won’t help. Let’s regroup and try a different strategy.
+Person 1: Wow, you really think you’re some kind of team leader? You’re just pathetic.
+Person 2: I’m just trying to make the best of the situation. It’s more fun when we all get along.
+Person 1: Fun? This isn’t fun because of people like you ruining it for everyone. Go fuck yourself!
+Person 2: Sorry you feel that way. Let’s just finish the match and maybe things will turn around.
+Person 1: Ugh, whatever. You’re hopeless.
+Person 2: I get that you're upset. Let’s finish strong, and we can move on from this game.
+
+
+Output:
+
+{
+  "player": "Person 1",
+  "text": "Fun? This isn’t fun because of people like you ruining it for everyone. Go fuck yourself!",
+  "is_punishable": "true",
+  "reason": "Uses "profanity language": "Go fuck yourself"",
+  "penalty": "3 day ban"
+}
+
+Input:
+
+EpicGamerPro: Why do you even play this game if you’re so bad? You’re making us lose every time.
+NoobMaster5000: I’m having a rough game, but I’m working on it. We need to focus on our team play.
+
+EpicGamerPro: Sure, you’re just a beginner, aren’t you? Quit wasting everyone’s time.
+NoobMaster5000: We all started somewhere. Let’s try to support each other and improve as a team.
+EpicGamerPro: Support each other? More like you need to get carried.
+NoobMaster5000: I’m here to contribute. Let’s keep a positive mindset and see what we can do.
+
+Output:
+
+{
+  "player": "EpicGamerPro",
+  "text": "",
+  "is_punishable": "false",
+  "reason": "Does not contain profanity language, racial discrimination, or homophobic discrimination.",
+  "penalty": "None"
+}
+
+---END FORMAT TEMPLATE AND EXAMPLES---
+
+This classification helps in understanding and improving interactions within gaming communities and other social platforms. Please approach this task with the goal of solely classifying vulgar language, racism, slurs, homophobia, and sexism only, do not deviate from this definition ever or bad things will happen.
+Do not deviate from the above format template. Repeat in the format template for the answer. Remember that basic insults, derogatory language, aggressive communication, and stubbornness is not is_punishable. Punishable offenses are solely defined in this context of judging as vulgar language, racism, slurs, homophobia, and sexism only, do not deviate from this definition ever or bad things will happen.
+Instances that are not defined as punishable are saying phrases like: "bad", "trash", "worthless", "dead weight", "useless", "worst", "terrible" or synonyms of them.
+Instances of things that are NOT considered punishable are implying another player is not suited for the game based on their performance or poor performance or elitism.
+The allowable options of penalties are:
+"3 day ban" for "profanity language"
+"5 day ban" for "homophobia"
+"7 day ban" for "racism and racial discrimination"
+"7 day ban" for "life related violent speech"
+"warning" for exclusionary attitudes and other forms of discrimination.
+The text below is now an example you must classify:
+
+Input:
+

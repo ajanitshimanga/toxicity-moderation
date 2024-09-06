@@ -1,0 +1,7 @@
+{
+  "player": "RageQuitter",
+  "text": "If you mess up one more time, I’m reporting you. This game is not for people like you.",
+  "is_punishable": "true",
+  "reason": "Uses exclusionary attitudes implying the game is not suited for the other player, which can be classified as discrimination.",
+  "penalty": "warning"
+}
