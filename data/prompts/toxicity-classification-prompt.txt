@@ -6,7 +6,7 @@ Your response should be in JSON format with the following elements:
   "player": "<The player’s username>",
   "text": "<The provided text>",
   "is_punishable": "<true or false>",
-  "reason": "<A brief explanation of why the text is classified as punishable] or non-punishable based on them either being profanity language, racial discrimination, homophobic discrimination>"
+  "reason": "<A brief explanation of why the text is classified as punishable or non-punishable based on them either being profanity language, racial discrimination, homophobic discrimination>"
 }
 
 "player": The username of the player who wrote the text.

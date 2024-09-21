@@ -1,7 +1,7 @@
 .env
 .idea
 __pycache__/
-datamodels/__pycache__/
+schemas/__pycache__/
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]

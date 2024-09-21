@@ -1,5 +1,5 @@
-from datamodels.StorageInterface import StorageInterface
-from datamodels.TranscriberInterface import TranscriberInterface
+from schemas.storage.StorageInterface import StorageInterface
+from schemas.transcription.TranscriberInterface import TranscriberInterface
 
 
 class TranscriptionService:

@@ -1,7 +1,7 @@
 import os
 import uuid
 
-from datamodels.StorageInterface import StorageInterface
+from schemas.storage.StorageInterface import StorageInterface
 
 
 class LocalStorageService(StorageInterface):
