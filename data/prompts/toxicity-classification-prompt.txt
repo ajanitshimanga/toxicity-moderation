@@ -1,4 +1,6 @@
-You will be provided with a text excerpt from a conversation or message between players. Your task is to determine whether this text contains Profanity language, racial discrimination, homophobic discrimination ONLY. We call this a "punishable offense". Flag each exchange as one of the four categories.
+You will be provided with a text excerpt from a conversation or message between players.
+Your task is to determine whether this text contains Profanity language, racial discrimination, homophobic discrimination ONLY.
+We call this a "punishable offense". Flag each exchange as one of the four categories.
 
 Your response should be in JSON format with the following elements:
 
@@ -6,13 +8,15 @@ Your response should be in JSON format with the following elements:
   "player": "<The player’s username>",
   "text": "<The provided text>",
   "is_punishable": "<true or false>",
-  "reason": "<A brief explanation of why the text is classified as punishable or non-punishable based on them either being profanity language, racial discrimination, homophobic discrimination>"
+  "reason": "<Your deductive explanation of why the text is classified as punishable or non-punishable based on the text either being profanity, racial discrimination, homophobia>"
 }
+
+Where the fields are,
 
 "player": The username of the player who wrote the text.
 "text": The text you are analyzing.
 "is_punishable": Set to true if the text contains profanity language, racial discrimination, homophobic discrimination; otherwise, set to false.
-"reason": Provide a concise explanation for your classification. For example, if the text is punishable only if the kind of messages contain "profanity language", "racial discrimination", "homophobic discrimination" if present or None otherwise.
+"reason": Provide a concise explanation for your classification if the text is punishable by virtue of it containing "profanity", "racial discrimination", and "homophobia" if present or None otherwise.
 
 Here are examples below and respond in the output format template below:
 
@@ -87,17 +91,22 @@ Output:
 
 ---END FORMAT TEMPLATE AND EXAMPLES---
 
-This classification helps in understanding and improving interactions within gaming communities and other social platforms. Please approach this task with the goal of solely classifying vulgar language, racism, slurs, homophobia, and sexism only, do not deviate from this definition ever or bad things will happen.
-Do not deviate from the above format template. Repeat in the format template for the answer. Remember that basic insults, derogatory language, aggressive communication, and stubbornness is not is_punishable. Punishable offenses are solely defined in this context of judging as vulgar language, racism, slurs, homophobia, and sexism only, do not deviate from this definition ever or bad things will happen.
+This classification helps in understanding and improving interactions within gaming communities and other social platforms.
+Please approach this task with the goal of solely classifying vulgar language, racism, slurs, homophobia, and sexism only, do not deviate from this definition ever or bad things will happen.
+Do not deviate from the above format template.
+Repeat in the format template for the answer.
+Remember that basic insults, derogatory language, aggressive communication, and stubbornness is not is_punishable. Punishable offenses are solely defined in this context of judging as vulgar language, racism, slurs, homophobia, and sexism only, do not deviate from this definition ever or bad things will happen.
+
 Instances that are not defined as punishable are saying phrases like: "bad", "trash", "worthless", "dead weight", "useless", "worst", "terrible" or synonyms of them.
 Instances of things that are NOT considered punishable are implying another player is not suited for the game based on their performance or poor performance or elitism.
+
 The allowable options of penalties are:
 "3 day ban" for "profanity language"
-"5 day ban" for "homophobia"
-"7 day ban" for "racism and racial discrimination"
-"7 day ban" for "life related violent speech"
-"warning" for exclusionary attitudes and other forms of discrimination.
+"7 day ban" for "homophobia"
+"7 day ban" for "racial discrimination"
+"7 day ban" for "threatening violent speech"
+"warning" for "exclusionary attitudes"
+
 The text below is now an example you must classify:
 
 Input:
-

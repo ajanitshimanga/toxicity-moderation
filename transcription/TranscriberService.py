@@ -1,9 +1,9 @@
-from schemas.storage.StorageInterface import StorageInterface
-from schemas.transcription.TranscriberInterface import TranscriberInterface
+from schemas.storage.Storage import Storage
+from schemas.transcription.Transcriber import Transcriber
 
 
 class TranscriptionService:
-    def __init__(self, transcription_strategy: TranscriberInterface, persistence_service: StorageInterface):
+    def __init__(self, transcription_strategy: Transcriber, persistence_service: Storage):
         self.transcription_strategy = transcription_strategy
         self.persistence_service = persistence_service
 

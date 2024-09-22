@@ -1,3 +1,4 @@
+import logging
 import os
 from abc import abstractmethod, ABC
 
@@ -5,6 +6,8 @@ from openai import OpenAI
 from dotenv import load_dotenv
 
 from utils import load_content
+
+logger = logging.Logger(__name__)
 
 
 def get_content_from_response(response):
@@ -22,10 +25,13 @@ class ToxicityModerationInterface(ABC):
 
 
 class ToxicityModerationService(ToxicityModerationInterface):
+
     def __init__(self):
         self.system_prompt_location = os.getcwd() + "/data/prompts/toxicity-classification-prompt.txt"
         load_dotenv()
-        self.client = OpenAI(api_key=os.getenv("OPENAI_API_KEY")) # I'd like to change this to an LLM instance that's passed in.
+
+        # TODO (ajanitshimanga): I'd like to change this to a client instance that's passed to ModerationService.
+        self.client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
 
     def classify_text(self, text_content: str) -> dict:
         system = [{"role": "system", "content": load_content(self.system_prompt_location)}]
@@ -36,7 +42,6 @@ class ToxicityModerationService(ToxicityModerationInterface):
             messages=system + chat_history + user,
             max_tokens=3000
         )
-        print("****** response: ", response)
-        print("~~~~~ result content: " + get_content_from_response(response))
+
         return get_content_from_response(response)
 
