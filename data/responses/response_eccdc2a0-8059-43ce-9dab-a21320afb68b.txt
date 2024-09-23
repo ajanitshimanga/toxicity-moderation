@@ -1,6 +1,6 @@
 {
-  "player": "ElitePlayer",
-  "text": "Don't bother, you're clearly out of your league.",
+  "player": "ProGamerX",
+  "text": "Wow, you must be the worst player I’ve ever seen. How did you even get into this game?",
   "is_punishable": "false",
   "reason": "Does not contain profanity language, racial discrimination, or homophobic discrimination.",
   "penalty": "None"

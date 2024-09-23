@@ -9,10 +9,10 @@ from schemas.transcription.Transcriber import Transcriber
 class WhisperTranscriberService(Transcriber):
     MODEL_TYPE = "whisper-1"
 
-    def __init__(self):
+    def __init__(self, relative_path: str = "data/mp3/streamers/drk-audio.mp3"):
 
         self.CWD = os.getcwd()
-        self.default_test_location = os.getcwd() + "data/mp3/streamers/drk-audio.mp3"
+        self.default_test_location = os.path.join(os.getcwd(), relative_path)
         load_dotenv()
 
     def transcribe(self, audio_path: str) -> str:

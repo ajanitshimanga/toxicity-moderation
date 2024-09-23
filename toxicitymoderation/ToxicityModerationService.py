@@ -5,6 +5,7 @@ from abc import abstractmethod, ABC
 from openai import OpenAI
 from dotenv import load_dotenv
 
+from schemas.clients.Client import Client
 from utils import load_content
 
 logger = logging.Logger(__name__)
@@ -26,22 +27,30 @@ class ToxicityModerationInterface(ABC):
 
 class ToxicityModerationService(ToxicityModerationInterface):
 
-    def __init__(self):
+    def __init__(self, client: Client = None):
         self.system_prompt_location = os.getcwd() + "/data/prompts/toxicity-classification-prompt.txt"
         load_dotenv()
 
         # TODO (ajanitshimanga): I'd like to change this to a client instance that's passed to ModerationService.
-        self.client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
+        if client:
+            self.client = client
+        else:
+            self.client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
 
-    def classify_text(self, text_content: str) -> dict:
-        system = [{"role": "system", "content": load_content(self.system_prompt_location)}]
+    def classify_text(self, input_text_content: str) -> dict:
+        # load system prompt
+        system_prompt = load_content(self.system_prompt_location)
+
+        # OpenAI specific request setup TODO(ajanitshimanga): allow client type specific handling of request setup.
+        system = [{"role": "system", "content": system_prompt}]
         chat_history = []  # past user and assistant turns for AI memory
-        user = [{"role": "user", "content": text_content}]
+        user = [{"role": "user", "content": input_text_content}]
+
+        # OpenAI Chat Completion request for inference
         response = self.client.chat.completions.create(
-            model="gpt-4o-mini",
+            model="gpt-4o-mini",    # TODO: config that loads env variable for model type.
             messages=system + chat_history + user,
             max_tokens=3000
         )
 
         return get_content_from_response(response)
-

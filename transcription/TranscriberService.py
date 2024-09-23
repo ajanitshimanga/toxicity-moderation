@@ -1,11 +1,11 @@
-from schemas.storage.Storage import Storage
+from schemas.storage.DataStore import DataStore
 from schemas.transcription.Transcriber import Transcriber
 
 
 class TranscriptionService:
-    def __init__(self, transcription_strategy: Transcriber, persistence_service: Storage):
-        self.transcription_strategy = transcription_strategy
-        self.persistence_service = persistence_service
+    def __init__(self, transcriber: Transcriber, storage_service: DataStore):
+        self.transcription_strategy = transcriber
+        self.persistence_service = storage_service
 
     def transcribe(self, mp3_path: str) -> None:
         """

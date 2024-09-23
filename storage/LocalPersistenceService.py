@@ -1,10 +1,10 @@
 import os
 import uuid
 
-from schemas.storage.Storage import Storage
+from schemas.storage.DataStore import DataStore
 
 
-class LocalStorageService(Storage):
+class LocalStorageService(DataStore):
 
     LOCAL_STORAGE_AFFIX = "/data/transcripts"
 

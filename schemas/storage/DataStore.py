@@ -1,7 +1,7 @@
 from abc import ABC, abstractmethod
 
 
-class Storage(ABC):
+class DataStore(ABC):
 
     @abstractmethod
     def __init__(self):

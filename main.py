@@ -1,10 +1,10 @@
-from toxicitymoderation.ToxicityModerationService import ToxicityModerationService, load_content, write_content
+from toxicitymoderation.ToxicityModerationService import ToxicityModerationService
 from pydantic import BaseModel
 import os
 from fastapi import FastAPI
 from fastapi import HTTPException
 
-from utils import list_files_in_folder
+from utils import list_files_in_folder, write_content, load_content
 
 
 class ToxicityModerationServiceProvider:
@@ -21,7 +21,7 @@ class ToxicityModerationServiceProvider:
 
 
 app = FastAPI()
-moderation_service = ToxicityModerationServiceProvider.get_service()
+moderation_service = ToxicityModerationServiceProvider().get_service()
 CWD = os.getcwd()
 # CWD + /data/transcripts/toxic-communication-valorant.txt"
 list_file_paths = CWD + "/data/transcripts/permissive"
